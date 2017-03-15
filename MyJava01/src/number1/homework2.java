@@ -6,30 +6,37 @@ public class homework2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s = new String(); 
-		while (check(s)==false){    
-			s = JOptionPane.showInputDialog(null, "請輸入要查詢質數的範圍", "請輸入數字");
-		}
-		
-		}
-	
-	static boolean check(String s){
-		int a = 0 ; int b = 1 ;
-		for (int i = 0 ; i < s.length(); i++){
-			if ((s.charAt(i)>=97 && s.charAt(i)<=122) || (s.charAt(i)>=65 && s.charAt(i)<=90) || s.charAt(i)==36 || s.charAt(i)==37
-				|| s.charAt(i)==42 || s.charAt(i)==63 ||s.charAt(i)==94 || s.charAt(i)==95 || ((s.charAt(i)>=48 && s.charAt(i)<=57))){
-				a++;
-			}else{
-				b++;
+		String s = new String();
+		String q = new String();
+		boolean sum = false;
+		int i = 0;
+		s = JOptionPane.showInputDialog("請輸入密碼");
+		while(sum!=true){
+		for (int a = 0 ; a < s.length();a++){
+			if ((s.charAt(a)>=48 && s.charAt(a)<=57) || s.charAt(a)==36 || s.charAt(a)==37 || s.charAt(a)==42 || s.charAt(a)==63
+		|| s.charAt(a)==95 || s.charAt(a)==94 || (s.charAt(a)>=65 && s.charAt(a)<=90) || (s.charAt(a)>=97&&s.charAt(a)<=122)){
+				i=i+1;
+			}	
 			}
-	}
-		if (b>1){
-			return false;
+		if(i == s.length()){
+			JOptionPane.showMessageDialog(null,"密碼設置成功") ;
+			sum=true;
+			break;
 		}else{
-			return true;
+			q=JOptionPane.showInputDialog(null,"請重新輸入密碼","密碼範圍A-Z:a-z:0-9:$?_^% ");
+			s=q;
+			}
 		}
-
+		}
+			
 	}
-}
+		
+		
+	
+
+
+	
+	
+
 
 
