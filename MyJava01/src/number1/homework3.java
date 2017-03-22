@@ -13,60 +13,66 @@ public class homework3 {
 		
 		
 		System.out.println();
-		String s = new String(); int year; int month=12;
+		String s = new String(); int year; int month=12;int sum=17;int mm;
+		String q = new String();String Blank = "";String e = "";
 		s=JOptionPane.showInputDialog("請輸入年分");
-		year=Integer.parseInt(s);
-		int[][][] aa = new int[year][month][];
+		q=JOptionPane.showInputDialog("請輸入月分");
 		
-		for (int i = 0;i<=11;i++){
+		year=Integer.parseInt(s);
+		mm=Integer.parseInt(q);
+		int[][][] aa = new int[year][month][];
+		for(int y = 1752 ; y<=aa.length;y++){
+		for (int i = 0;i<aa[y-1].length;i++){
 			switch(i){
 			case 0: case 2: case 4: case 6: case 7: case 9: case 11:
-			aa[year-1][i]=new int[31];
+			aa[y-1][i]=new int[31];
 			break;
 			case 3: case 5: case 8: case 10:
-			aa[year-1][i]=new int[30];
+			aa[y-1][i]=new int[30];
 			break;
 			case 1:
-				if (year % 4 == 0){
-					if (year % 100 == 0){
-						if (year % 400 == 0){
-							aa[year-1][1]=new int[29];
+				if (y % 4 == 0){
+					if (y % 100 == 0){
+						if (y % 400 == 0){
+							aa[y-1][1]=new int[29];
 							// 29
 						}else{
-							aa[year-1][1]=new int[28];
+							aa[y-1][1]=new int[28];
 							// 28
 						}
 					}else{
-						aa[year-1][1]=new int[29];
-						// 29
+						aa[y-1][1]=new int[28];
+						// 28
 					}
 				}else{
-					aa[year-1][1]=new int[28];
+					aa[y-1][1]=new int[28];
 					// 28
 				}
 				break;
 		}
+
 		}
+								
 		
-			
-		for(int y = 1752 ; y<aa.length;y++){
-			for(int m = 0 ; m < aa[y].length;m++){
-				for(int d = 0; d< aa[y][m].length;d++){
-					aa[y][m][d]=d+1;
-					System.out.print(aa[y][m][d]);
+			for(int m = 0 ; m < aa[y-1].length;m++){
+				for(int d = 0; d< aa[y-1][m].length;d++){
+
+
+					aa[y-1][m][d]=d+1;
 				}
-			
 		}
-		}
-	
+		}		
+		
+	for (int b = 0;b<(((sum-aa[year-1][mm-1].length)%7)-3);b++){
+				Blank=Blank + "\t";
+	}
 		
 		
-		//for (int a = 1;a<31;a++){
-			//System.out.print(a + "\t");
-			//if (a % 7 == 0){
-				//System.out.println();
-			//}
-		//}
+		for (int a = 0;a<aa[year-1][mm-1].length;a++){
+			e=e+(aa[year-1][mm-1][a]+"\t");		
+	}
+		System.out.println(Blank+e);
+		System.out.println(sum);
 	}
 
 }
