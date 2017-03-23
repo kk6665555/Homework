@@ -13,7 +13,7 @@ public class homework3 {
 		
 		
 		System.out.println();
-		String s = new String(); int year; int month=12;int sum=17;int mm;
+		String s = new String(); int year; int month=12;int sum=0;int mm;
 		String q = new String();String Blank = "";String e = "";
 		s=JOptionPane.showInputDialog("請輸入年分");
 		q=JOptionPane.showInputDialog("請輸入月分");
@@ -57,7 +57,7 @@ public class homework3 {
 			for(int m = 0 ; m < aa[y-1].length;m++){
 				for(int d = 0; d< aa[y-1][m].length;d++){
 
-
+					sum=sum+1;
 					aa[y-1][m][d]=d+1;
 				}
 		}
