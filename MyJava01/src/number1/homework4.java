@@ -15,13 +15,13 @@ public class homework4 {
 			result =result+a[Integer.parseInt(number.substring(i,i+1))] ;
 		}
 		String number1 = check(result);
-		System.out.println(result);
+		System.out.println(number1);
 		for (int j = 0; j<number1.length();j++, b1--){
 			if(number1.substring(j,j+1).equals("&")){
 				//result1+= a[Integer.parseInt(number.substring(j,j+1))];
-			}else if(number1.substring(j,j+1).equals("¹s")){
-				//result1+=a[Integer.parseInt(number.substring(j,j+1))] + b[(b1-1)];
-			result1+="¹s";
+//			}else if(number1.substring(j,j+1).equals("¹s")){
+//				//result1+=a[Integer.parseInt(number.substring(j,j+1))] + b[(b1-1)];
+//			result1+="¹s";
 			}else{
 			result1+=a[Integer.parseInt(number.substring(j,j+1))] + b[(b1-1)];
 			}

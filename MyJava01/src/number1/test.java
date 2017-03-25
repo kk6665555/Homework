@@ -10,15 +10,13 @@ public class test {
 		String [] c = {"萬","億","兆","京"};
 		String result = "";
 		String number = JOptionPane.showInputDialog("請輸入要轉換的數字");
-		switch(number.length() % 4){
-		case 2:
-			result+="拾";
-		case 3:
-			result+="佰";
-		case 0:
-			result+="仟";
-		System.out.println(number.length() % 4);
+		for( int i=0;i<number.length();i++){
+			
+			result =result+a[Integer.parseInt(number.substring(i,i+1))] ;
+		}
+		
+		
+		System.out.println(result);
 		
 		}
 	}
-}
