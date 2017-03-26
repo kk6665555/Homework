@@ -13,7 +13,7 @@ public class homework3 {
 		
 		
 		System.out.println();
-		String s = new String(); int year; int month=12;int sum=0;int mm;
+		String s = new String(); int year; int month=12;int sum=0;int mm;int a1=0;
 		String q = new String();String Blank = "";String e = "";
 		s=JOptionPane.showInputDialog("請輸入年分");
 		q=JOptionPane.showInputDialog("請輸入月分");
@@ -50,29 +50,36 @@ public class homework3 {
 				}
 				break;
 		}
-
-		}
-								
-		
+		}	
 			for(int m = 0 ; m < aa[y-1].length;m++){
 				for(int d = 0; d< aa[y-1][m].length;d++){
-
-					sum=sum+1;
+					sum+=1;
 					aa[y-1][m][d]=d+1;
 				}
 		}
 		}		
+		for ( int r=mm;r<=aa[year-1].length;r++){
+			for(int i =0;i<aa[year-1][r-1].length;i++){
+				a1++;
+			}
+		}
+		sum=sum-256-a1;
 		
-	for (int b = 0;b<(((sum-aa[year-1][mm-1].length)%7)-3);b++){
+		
+	
+	for (int b = 0;b<((sum-3)%7);b++){
 				Blank=Blank + "\t";
 	}
 		
 		
 		for (int a = 0;a<aa[year-1][mm-1].length;a++){
-			e=e+(aa[year-1][mm-1][a]+"\t");		
+			if(((sum-3)%7+a+1)%7==0){
+			e=e+(aa[year-1][mm-1][a]+"\t" +"\n");		
+			}else{
+			e=e+(aa[year-1][mm-1][a]+"\t");	
+			}
 	}
 		System.out.println(Blank+e);
-		System.out.println(sum);
 	}
 
 }
