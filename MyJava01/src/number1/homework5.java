@@ -41,7 +41,7 @@ public class homework5 extends JFrame{
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			
 			a.setFont(new Font("細明體",Font.PLAIN, 16));
-			a.setLineWrap(true);
+			a.setLineWrap(true);//JTextArea 自動換行
 			
 			
 			
