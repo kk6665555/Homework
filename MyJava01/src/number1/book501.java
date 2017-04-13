@@ -16,10 +16,10 @@ public class book501 {
 			for(int b : a){
 				switch(b){		
 				case 0:
-				System.out.print("¢i");
+				System.out.print("B");
 				break;
 				case 2:
-				System.out.print("0");
+				System.out.print("A");
 				break;			
 			}
 		}
