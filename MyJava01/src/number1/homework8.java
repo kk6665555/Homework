@@ -87,14 +87,16 @@ public class homework8  extends JFrame{
 //現在的時間
   class Time extends TimerTask{
 	  private  int yy,mm,ss;
-	  Time(){
-		Calendar now = Calendar.getInstance();
-		yy=now.get(Calendar.HOUR_OF_DAY);
-		mm=now.get(Calendar.MINUTE);
-		ss=((now.get(Calendar.SECOND)*10));
-	  }
+	  Calendar now = Calendar.getInstance();
+	 Time(){
+		 ss=(now.get(Calendar.SECOND)*10);
+	 }
 	@Override
 	public void run() {
+		
+		yy=now.get(Calendar.HOUR_OF_DAY);
+		mm=now.get(Calendar.MINUTE);
+		
 		ss++;
 		repaint();
 	}
