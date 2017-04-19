@@ -93,10 +93,8 @@ public class homework8  extends JFrame{
 	 }
 	@Override
 	public void run() {
-		
 		yy=now.get(Calendar.HOUR_OF_DAY);
 		mm=now.get(Calendar.MINUTE);
-		
 		ss++;
 		repaint();
 	}
