@@ -39,16 +39,16 @@ public class homework8  extends JFrame{
   class MyPool extends JPanel {
 	  private Timer a;
 	  private Time b;
+	  private Time1 c;
 	  int x=150,y=150;
-	  int hh,mm,ss=0;
-	  
-	  
-
+	 
 	  MyPool(){
 		  setBackground(Color.BLACK);
 		  a=new Timer();
-		  b=new Time(hh,mm,ss);
-		  a.schedule(b, 0,100);
+		  b=new Time(0,0,0);
+		  c=new Time1();
+		  a.schedule(b, 0,1000);
+		  a.schedule(c, 0, 100);
 	  }
 	  
 		@Override
@@ -56,14 +56,14 @@ public class homework8  extends JFrame{
 			super.paintComponent(g);
 			Graphics2D g2d = (Graphics2D)g;	
 			g2d.setColor(Color.WHITE);
-			g2d.drawLine(x,y,(int) (x-100*Math.cos(-b.ss*Math.PI/30)),(int)((y+100*Math.sin(-b.ss*Math.PI/30))));
+			g2d.drawLine(x,y,(int) (x-100*Math.cos(-c.ss1*Math.PI/300)),(int)((y+100*Math.sin(-c.ss1*Math.PI/300))));
 			g2d.setColor(Color.BLUE);
 			g2d.drawLine(x, y,(int)(x+80*Math.sin(b.mm*Math.PI/30)), (int)(y-80*Math.cos(b.mm*Math.PI/30)) );
 			g2d.setColor(Color.CYAN);
 			g2d.drawLine(x,y,(int)(x+55*Math.sin( (b.yy+b.mm/60.0) * Math.PI/6) ), (int)(x-55*Math.cos( (b.yy+b.mm/60.0) * Math.PI/6) ));
 
 		}
-		
+		// 畫1-12 和 每秒的刻度
 		@Override
 		public void paint(Graphics g) {
 			String number[] = {"12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" };
@@ -87,7 +87,7 @@ public class homework8  extends JFrame{
 			}
 		}
 
-
+//現在的時間
   class Time extends TimerTask{
 	  private  int yy,mm,ss;
 	  Time(int yy,int mm, int ss){
@@ -102,6 +102,24 @@ public class homework8  extends JFrame{
 		repaint();
 	}
  }
+  
+  //讓秒針的個區隔變大
+  class Time1 extends TimerTask{
+	  private Time aa;
+	  private int ss1;
+	  Time1(){
+		 aa= new Time(0,0,0);
+		 ss1=(aa.ss-1)*10;
+		  this.ss1=ss1;
+	  }
+	@Override
+	public void run() {		
+		ss1++;	
+		repaint();
+	}
+	  
+  }
+
 }
  
  

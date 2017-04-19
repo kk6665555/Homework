@@ -38,9 +38,9 @@ class MyPan extends JPanel{
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;	
-		for(int i = 0;i<360;i++){
+		for(int i = 0;i<12;i++){
 		g2d.setColor(Color.WHITE);
-		g2d.drawLine(x,y,(int) (x-100*Math.cos(i*Math.PI/180)),(int)((y+100*Math.sin(i*Math.PI/180))));
+		g2d.drawLine(x, y,(int)(x+80*Math.sin(i*Math.PI/30)), (int)(y-80*Math.cos(i*Math.PI/30)) );
 		}
 	}
 }
