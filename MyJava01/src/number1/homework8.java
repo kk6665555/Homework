@@ -39,6 +39,7 @@ public class homework8  extends JFrame{
   class MyPool extends JPanel {
 	  private Timer a;
 	  private Time  b;
+	  private  int yy,mm,ss,sss;
 	  int x=150,y=150;
 	 
 	  MyPool(){
@@ -53,11 +54,11 @@ public class homework8  extends JFrame{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);			
 			g.setColor(Color.WHITE);
-			g.drawLine(x,y,(int) (x+100*Math.sin(b.ss*Math.PI/300)),(int)((y-100*Math.cos(b.ss*Math.PI/300))));
+			g.drawLine(x,y,(int) (x+100*Math.sin((ss+sss/1000.0)*Math.PI/300)),(int)((y-100*Math.cos((ss+sss/1000)*Math.PI/300))));
 			g.setColor(Color.BLUE);
-			g.drawLine(x, y,(int)(x+80*Math.sin(b.mm*Math.PI/30)), (int)(y-80*Math.cos(b.mm*Math.PI/30)) );
+			g.drawLine(x, y,(int)(x+80*Math.sin((mm+ss/60.0)*Math.PI/300)), (int)(y-80*Math.cos((mm+ss/60.0)*Math.PI/300)));
 			g.setColor(Color.CYAN);
-			g.drawLine(x,y,(int)(x+55*Math.sin( (b.yy+b.mm/60.0) * Math.PI/6) ), (int)(x-55*Math.cos( (b.yy+b.mm/60.0) * Math.PI/6) ));
+			g.drawLine(x,y,(int)(x+55*Math.sin( ((yy+mm/600.0)+(mm/60.0)) * Math.PI/60) ), (int)(x-55*Math.cos( ((yy+mm/600.0)+mm/60.0) * Math.PI/60) ));
 
 		}
 		// 畫1-12 和 每秒的刻度
@@ -86,16 +87,19 @@ public class homework8  extends JFrame{
 
 //現在的時間
   class Time extends TimerTask{
-	  private  int yy,mm,ss;
-	  Calendar now = Calendar.getInstance();
+	  
+	  
 	 Time(){
-		 ss=(now.get(Calendar.SECOND)*10);
+		
 	 }
 	@Override
 	public void run() {
-		yy=now.get(Calendar.HOUR_OF_DAY);
-		mm=now.get(Calendar.MINUTE);
-		ss++;
+		Calendar now = Calendar.getInstance();
+		yy=now.get(Calendar.HOUR_OF_DAY)*10;
+		mm=now.get(Calendar.MINUTE)*10;
+		ss=now.get(Calendar.SECOND)*10;
+		sss=now.get(Calendar.MILLISECOND)*10;
+		System.out.println(yy+":"+mm+":"+ss+":"+sss);
 		repaint();
 	}
  }	  
